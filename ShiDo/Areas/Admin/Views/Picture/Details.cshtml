@@ -1,0 +1,42 @@
+﻿@model ShiDo.Models.Gallery.Picture
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Picture</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Gallery.GalleryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gallery.GalleryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            <div class="thumbnail"><img class="img-thumbnail" width="200" src="@Url.Action("Show", "Picture", new { id=Model.PictureId})" alt="Alternate Text" /></div>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PictureId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
