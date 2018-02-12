@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<ShiDo.Models.Gallery.Gallery>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Галереи";
 }
 
-<h2>Index</h2>
+<h2>Галереи</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать новую галерею", "Create", "Gallery", new { @class="btn btn-primary"})
 </p>
 <table class="table">
     <tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.GalleryName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.GalleryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.GalleryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.GalleryId })
+            @Html.ActionLink("Ред.", "Edit", new { id=item.GalleryId }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.GalleryId }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.GalleryId })
         </td>
     </tr>
 }

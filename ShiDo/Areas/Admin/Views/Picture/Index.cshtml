@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<ShiDo.Models.Gallery.Picture>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Изображения";
 }
 
-<h2>ИЗображения</h2>
+<h2>Изображения</h2>
 
 <p>
-    @Html.ActionLink("Добавить новое изображение", "Create")
+    @Html.ActionLink("Добавить новое изображение", "Create", "Picture", new { @class="btn btn-primary"})
+   
 </p>
 <table class="table">
     <tr>

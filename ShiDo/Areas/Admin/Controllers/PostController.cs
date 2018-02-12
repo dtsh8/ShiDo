@@ -7,111 +7,111 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ShiDo.DAL;
-using ShiDo.Models.Gallery;
+using ShiDo.Models;
 
 namespace ShiDo.Areas.Admin.Controllers
 {
-    public class GalleryController : Controller
+    public class PostController : Controller
     {
-        private ShiDoDbContext db = new ShiDoDbContext();
+        private PostContext db = new PostContext();
 
-        // GET: Admin/Gallery
+        // GET: Admin/Post
         public ActionResult Index()
         {
-            return View(db.Galleries.ToList());
+            return View(db.Posts.ToList());
         }
 
-        // GET: Admin/Gallery/Details/5
+        // GET: Admin/Post/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Gallery gallery = db.Galleries.Find(id);
-            if (gallery == null)
+            Post post = db.Posts.Find(id);
+            if (post == null)
             {
                 return HttpNotFound();
             }
-            return View(gallery);
+            return View(post);
         }
 
-        // GET: Admin/Gallery/Create
+        // GET: Admin/Post/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Gallery/Create
+        // POST: Admin/Post/Create
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GalleryId,GalleryName")] Gallery gallery)
+        public ActionResult Create([Bind(Include = "PostId,PostTitle,PostText,PostPictureId")] Post post)
         {
             if (ModelState.IsValid)
             {
-                db.Galleries.Add(gallery);
+                db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(gallery);
+            return View(post);
         }
 
-        // GET: Admin/Gallery/Edit/5
+        // GET: Admin/Post/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Gallery gallery = db.Galleries.Find(id);
-            if (gallery == null)
+            Post post = db.Posts.Find(id);
+            if (post == null)
             {
                 return HttpNotFound();
             }
-            return View(gallery);
+            return View(post);
         }
 
-        // POST: Admin/Gallery/Edit/5
+        // POST: Admin/Post/Edit/5
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GalleryId,GalleryName")] Gallery gallery)
+        public ActionResult Edit([Bind(Include = "PostId,PostTitle,PostText,PostPictureId")] Post post)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(gallery).State = EntityState.Modified;
+                db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(gallery);
+            return View(post);
         }
 
-        // GET: Admin/Gallery/Delete/5
+        // GET: Admin/Post/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Gallery gallery = db.Galleries.Find(id);
-            if (gallery == null)
+            Post post = db.Posts.Find(id);
+            if (post == null)
             {
                 return HttpNotFound();
             }
-            return View(gallery);
+            return View(post);
         }
 
-        // POST: Admin/Gallery/Delete/5
+        // POST: Admin/Post/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Gallery gallery = db.Galleries.Find(id);
-            db.Galleries.Remove(gallery);
+            Post post = db.Posts.Find(id);
+            db.Posts.Remove(post);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

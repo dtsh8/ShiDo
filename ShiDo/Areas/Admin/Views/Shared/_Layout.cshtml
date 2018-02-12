@@ -16,11 +16,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Админка", "Index", "Home", new { area = "Admin" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Галерея", "Index", "Gallery")</li>
+                    <li>@Html.ActionLink("Галереи", "Index", "Gallery")</li>
                     <li>@Html.ActionLink("Изображения", "Index", "Picture")</li>
                     <li></li>
                 </ul>
@@ -32,7 +32,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - shirapdorzhiev.com</p>
         </footer>
     </div>
 

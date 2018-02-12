@@ -13,7 +13,7 @@ namespace ShiDo.Areas.Admin.Controllers
 {
     public class PictureController : Controller
     {
-        private GalleryContext db = new GalleryContext();
+        private ShiDoDbContext db = new ShiDoDbContext();
 
         // GET: Admin/Picture
         public ActionResult Index()
